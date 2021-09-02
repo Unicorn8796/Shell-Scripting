@@ -1,0 +1,9 @@
+Access an error statement from an error.log file.
+
+----script----
+
+#! /bin/bash
+#Date: Sept 2, 2021
+#Description : To access only an error statement from any service ( using nginx ) error.log and sent output to another file.
+
+grep -i error /var/log/nginx/error.log > /home/logs/nginx-error
