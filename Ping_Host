@@ -1,0 +1,35 @@
+1. To Check ping status of one ip.
+!/bin/bash
+#Description : To ping one remote host and check the status
+
+host="172.31.5.41"
+ping -c1 $host &> /dev/null
+     if [ $? -eq 0 ]
+     then
+     echo $host OK
+     else
+     echo $host NOT OK
+     fi
+
+2. To Check ping status of multiple ip.
+First Create another file and save the list of ip's
+
+touch myhost
+nano myhost
+198.21.4.15
+172.34.25.14
+
+#!/bin/bash
+#Description : To ping multiple ip and check the status
+
+iplist="/home/shell-scripts/myhost"
+for ip in $(cat $iplist)
+do
+    ping -c1 $ip &> /dev/null
+         if [ $? -eq 0 ]
+         then
+         echo $ip OK
+         else
+         echo $ip NOT OK
+         fi
+done
